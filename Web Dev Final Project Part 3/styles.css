@@ -1,0 +1,43 @@
+ body {
+        background-color: rgb(45, 14, 107);
+	background-image: url("a-simple-sunrise-douglas-stucky.jpg");
+	
+}
+.box1 {
+	width: 200px;
+	height: 100px;
+	border: 1px solid black;
+	padding 10px;
+ 	margin: 10px;
+	background-color: rgba(255, 227, 110, 0.3);
+}
+
+.box2 {
+	width: 400 px;
+	height: 200px;
+	border: 1px solid black;
+	padding 10px;
+	margin 10px;
+	background-color: rgba(225, 227, 110, 0.3);
+}
+.box3 {
+	width: 400 px;
+	height: 300px;
+	border: 1px solid black;
+	padding 10px;
+	margin 10px;
+	background-color: rgba(225, 227, 110, 0.3);
+}
+.box4 {
+	width: 50%;
+	height: 100px;
+	border: 1px solid black;
+	padding: 10px;
+	margin: auto;
+	background-color: rgba(225, 227, 110, 0.3);
+	text-align: center;
+}
+
+h1 {
+	text-decoration: underline;
+}
