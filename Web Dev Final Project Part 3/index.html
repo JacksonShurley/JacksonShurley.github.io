@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<link rel = "stylesheet" href = "styles.css">
+<head>
+<h1 align = "center">HELPHUB</h1>
+</head>
+<body>
+<div class = "box1">
+<ul class = "nav-links">
+
+<li><a class="active" href="index.html">Home Page</a></li>
+
+        <li><a href="charities.html">Charities</a></li>
+
+        <li><a href="charity_profile.html">Charity Profiles</a></li>
+	<li><a href = "news.html"> News</a></li>?
+        
+        
+</ul>
+</div>
+
+<div class = "box2">
+        <p align = "center"; style = "font-weight:bold">Our Goal:</p>
+        <p align = "center">Our mission is to get users connected with charities of their choice</p>
+        <p align = "center">and make the entire process simple and smooth. We will direct you
+        </p>
+        <p align = "center">We will direct users towards reputable charities and allow anyone to make the difference</p1> 
+        <p align = "center">that they want to see</p>
+        
+</div>
+        
+        <h1 style="text-align: center;">Map of the United States</h1>
+  <div id="map"></div>
+ 
+ 
+
+<title>Charity Events Map</title>
+  <style>
+    #map {
+      height: 600px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Charity Events Map</h1>
+  <div id="map"></div>
+
+  <script>
+    let map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 37.0902, lng: -95.7129 }, // Centered on the United States
+        zoom: 4, // Adjust zoom level as needed
+        mapTypeId: "roadmap" // Show road map view
+      });
+
+      // Search for charity events using the Places API
+      const request = {
+        location: map.getCenter(),
+        radius: 5000000, // Within 5000 km radius of the center (adjust as needed)
+        query: "charity events"
+      };
+
+      const service = new google.maps.places.PlacesService(map);
+      service.textSearch(request, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (let i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      });
+    }
+
+    function createMarker(place) {
+      const marker = new google.maps.Marker({
+        map,
+        position: place.geometry.location,
+        title: place.name
+      });
+
+      const infowindow = new google.maps.InfoWindow({
+        content: `<div><strong>${place.name}</strong><br>${place.formatted_address}</div>`
+      });
+
+      marker.addListener("click", () => {
+        infowindow.open(map, marker);
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRhMEkq9SIDzN3PNFDmM6lX3JJ6eu8uIQ&callback=initMap" async defer></script>
+</body>
+</html>
